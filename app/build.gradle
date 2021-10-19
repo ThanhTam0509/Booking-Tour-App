@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -83,4 +84,11 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-beta01"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-beta01"
+
+//    Hilt
+    implementation "com.google.dagger:hilt-android:2.39.1"
+    kapt "com.google.dagger:hilt-compiler:2.38.1"
+
+    // Design
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.8'
 }

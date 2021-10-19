@@ -6,14 +6,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import com.thanhtam.bookingtour.databinding.FragmentLoginBinding
 import com.thanhtam.bookingtour.data.network.AuthApi
 import com.thanhtam.bookingtour.data.network.Resource
 import com.thanhtam.bookingtour.data.repository.AuthRepository
 import com.thanhtam.bookingtour.ui.auth.base.BaseFragment
 import com.thanhtam.bookingtour.ui.auth.home.HomeActivity
-import kotlinx.coroutines.launch
 
 class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepository>() {
 
@@ -25,10 +23,10 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             binding.progress.visible(false)
-            when(it){
+            when (it) {
                 is Resource.Success -> {
-                        viewModel.saveAuthToken(it.value.token)
-                        requireActivity().startNewActivity(HomeActivity::class.java)
+                    viewModel.saveAuthToken(it.value.token!!)
+                    requireActivity().startNewActivity(HomeActivity::class.java)
                 }
                 is Resource.Failure -> {
                     Toast.makeText(requireContext(), "Login Failure", Toast.LENGTH_LONG).show()
@@ -47,7 +45,7 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
             binding.progress.visible(true)
             viewModel.login(email, password)
         }
-        
+
     }
 
     override fun getViewModel() = AuthViewModel::class.java
@@ -57,6 +55,7 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         container: ViewGroup?
     ) = FragmentLoginBinding.inflate(inflater, container, false)
 
-    override fun getFragmentRepository() = AuthRepository(remoteDataSource.buildApi(AuthApi::class.java), userPreferences)
+    override fun getFragmentRepository() =
+        AuthRepository(remoteDataSource.buildApi(AuthApi::class.java), userPreferences)
 
 }

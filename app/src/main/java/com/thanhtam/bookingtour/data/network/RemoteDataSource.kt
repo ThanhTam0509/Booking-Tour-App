@@ -5,26 +5,33 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.logging.HttpLoggingInterceptor
+import javax.inject.Inject
 
 
-class RemoteDataSource {
+class RemoteDataSource @Inject constructor() {
     companion object {
-        private const val BASE_URL = "http://192.168.1.4:3000/api/v1/users/login/"
+        private const val BASE_URL = "http://192.168.1.12:3000/api/v1/"
     }
 
     fun <Api> buildApi(
-        api: Class<Api>
+        api: Class<Api>,
+        authToken: String? = null
     ): Api {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(
-                OkHttpClient.Builder().also { client ->
-                    if(BuildConfig.DEBUG) {
-                        val logging = HttpLoggingInterceptor()
-                        logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
-                        client.addInterceptor(logging)
-                    }
-                }.build()
+                OkHttpClient.Builder()
+                    .addInterceptor { chain ->
+                        chain.proceed(chain.request().newBuilder().also {
+                            it.addHeader("Authorization", "Bearer $authToken")
+                        }.build())
+                    }.also { client ->
+                        if (BuildConfig.DEBUG) {
+                            val logging = HttpLoggingInterceptor()
+                            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+                            client.addInterceptor(logging)
+                        }
+                    }.build()
             )
             .addConverterFactory(GsonConverterFactory.create())
             .build()
