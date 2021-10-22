@@ -13,6 +13,9 @@
         android:theme="@style/Theme.BookingTour"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.BottomActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.auth.home.HomeActivity"
             android:exported="true" />
         <activity

@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_Studio/Booking-Tour-App/app/src/main/res/drawable/booking.xml" value="0.225" />
+        <entry key="..\:/Android_Studio/Booking-Tour-App/app/src/main/res/drawable/favorite.xml" value="0.225" />
+        <entry key="..\:/Android_Studio/Booking-Tour-App/app/src/main/res/drawable/profile.xml" value="0.225" />
+        <entry key="..\:/Android_Studio/Booking-Tour-App/app/src/main/res/drawable/search.xml" value="0.225" />
+        <entry key="..\:/Android_Studio/Booking-Tour-App/app/src/main/res/layout/activity_bottom.xml" value="0.20885416666666667" />
+        <entry key="..\:/Android_Studio/Booking-Tour-App/app/src/main/res/layout/activity_home.xml" value="0.20885416666666667" />
+        <entry key="..\:/Android_Studio/Booking-Tour-App/app/src/main/res/layout/fragment_home.xml" value="0.20885416666666667" />
         <entry key="..\:/Android_Studio/BookingTour/app/src/main/res/drawable/btn_custom.xml" value="0.11614583333333334" />
         <entry key="..\:/Android_Studio/BookingTour/app/src/main/res/drawable/et_custom.xml" value="0.11614583333333334" />
         <entry key="..\:/Android_Studio/BookingTour/app/src/main/res/drawable/ic_arrow_left.xml" value="0.11614583333333334" />

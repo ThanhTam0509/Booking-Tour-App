@@ -83,4 +83,10 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-beta01"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-beta01"
+
+//    Lottie Animations
+    implementation "com.airbnb.android:lottie:4.2.0"
+
+//    SmoothBottomBar
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.8'
 }
