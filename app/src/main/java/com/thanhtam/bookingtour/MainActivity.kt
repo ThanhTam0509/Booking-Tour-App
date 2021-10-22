@@ -10,6 +10,10 @@ import com.thanhtam.bookingtour.data.UserPreferences
 import com.thanhtam.bookingtour.ui.auth.AuthActivity
 import com.thanhtam.bookingtour.ui.auth.home.HomeActivity
 import com.thanhtam.bookingtour.ui.auth.startNewActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +24,14 @@ class MainActivity : AppCompatActivity() {
 
         userPreferences.authToken.asLiveData().observe(this, Observer {
             val activity = if (it == null) AuthActivity::class.java else HomeActivity::class.java
-            startNewActivity(activity)
-
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(4000)
+                startNewActivity(activity)
+            }
         })
+//        CoroutineScope(Dispatchers.Main).launch {
+//            delay(4000)
+//            startActivity(Intent(this@MainActivity, AuthActivity::class.java))
+//        }
     }
 }
