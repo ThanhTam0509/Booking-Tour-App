@@ -1,6 +1,7 @@
 package com.thanhtam.bookingtour
 
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
 
         val userPreferences = UserPreferences(this)
 
@@ -29,9 +31,5 @@ class MainActivity : AppCompatActivity() {
                 startNewActivity(activity)
             }
         })
-//        CoroutineScope(Dispatchers.Main).launch {
-//            delay(4000)
-//            startActivity(Intent(this@MainActivity, AuthActivity::class.java))
-//        }
     }
 }
