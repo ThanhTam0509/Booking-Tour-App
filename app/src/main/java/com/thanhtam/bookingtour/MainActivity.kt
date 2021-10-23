@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         userPreferences.authToken.asLiveData().observe(this, Observer {
             val activity = if (it == null) AuthActivity::class.java else HomeActivity::class.java
             CoroutineScope(Dispatchers.Main).launch {
-                delay(4000)
+                delay(2000)
                 startNewActivity(activity)
             }
         })

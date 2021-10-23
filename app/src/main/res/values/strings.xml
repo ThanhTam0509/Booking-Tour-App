@@ -16,7 +16,7 @@
     <string name="Travel">Travel</string>
     <string name="Easy">Easy</string>
     <string name="Convenient">Convenient</string>
-    <string name="payment">payment</string>
+    <string name="payment">Payment</string>
     <string name="BookingTour">Booking Tour</string>
     <string name="TimeToTravel">Time To Travel</string>
 </resources>

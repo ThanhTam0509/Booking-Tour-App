@@ -1,10 +1,8 @@
 package com.thanhtam.bookingtour.ui.auth.home
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.airbnb.lottie.LottieAnimationView
-import com.thanhtam.bookingtour.MainActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.ui.BottomActivity
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -21,8 +19,9 @@ class HomeActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         CoroutineScope(Dispatchers.Main).launch {
-            delay(4000)
+            delay(2000)
             startActivity(Intent(this@HomeActivity, BottomActivity::class.java))
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         }
     }
 }
