@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.thanhtam.bookingtour.data.network.Resource
 import com.thanhtam.bookingtour.data.repository.AuthRepository
 import com.thanhtam.bookingtour.data.responses.LoginResponse
+import com.thanhtam.bookingtour.data.responses.RegisterResponse
 import kotlinx.coroutines.launch
 
 class AuthViewModel(
@@ -14,15 +15,27 @@ class AuthViewModel(
 ) : ViewModel() {
 
     private val _loginResponse : MutableLiveData<Resource<LoginResponse>> = MutableLiveData()
+    private val _registerResponse: MutableLiveData<Resource<RegisterResponse>> = MutableLiveData()
 
     val loginResponse: LiveData<Resource<LoginResponse>>
     get() = _loginResponse
+
+    val registerResponse: LiveData<Resource<RegisterResponse>>
+    get() = _registerResponse
 
     fun login(
         email: String,
         password: String
     ) = viewModelScope.launch {
         _loginResponse.value = repository.login(email, password)
+    }
+    fun register(
+        name: String,
+        email: String,
+        password: String,
+        passwordConfirm: String
+    ) = viewModelScope.launch {
+        _registerResponse.value = repository.register(name, email, password, passwordConfirm)
     }
 
     fun saveAuthToken(token: String) = viewModelScope.launch {

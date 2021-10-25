@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.thanhtam.bookingtour.ui.SearchFragment"
+        android:name="com.thanhtam.bookingtour.ui.search.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/bookingFragment"
-        android:name="com.thanhtam.bookingtour.ui.BookingFragment"
+        android:name="com.thanhtam.bookingtour.ui.booking.BookingFragment"
         android:label="Booking"
         tools:layout="@layout/fragment_booking" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.thanhtam.bookingtour.ui.FavoriteFragment"
+        android:name="com.thanhtam.bookingtour.ui.favorite.FavoriteFragment"
         android:label="Favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.thanhtam.bookingtour.ui.ProfileFragment"
+        android:name="com.thanhtam.bookingtour.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

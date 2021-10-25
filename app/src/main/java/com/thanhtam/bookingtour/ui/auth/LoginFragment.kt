@@ -7,6 +7,8 @@ import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.databinding.FragmentLoginBinding
 import com.thanhtam.bookingtour.data.network.AuthApi
 import com.thanhtam.bookingtour.data.network.Resource
@@ -46,6 +48,9 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
             val password = binding.etPassword.text.toString().trim()
             binding.progress.visible(true)
             viewModel.login(email, password)
+        }
+        binding.swipeRight.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
         
     }

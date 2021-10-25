@@ -1,4 +1,4 @@
-package com.thanhtam.bookingtour.ui
+package com.thanhtam.bookingtour.ui.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
