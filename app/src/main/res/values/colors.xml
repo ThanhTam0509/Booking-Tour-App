@@ -27,4 +27,9 @@
     <color name="indicatorColor">#2DFFFFFF</color>
     <color name="iconTint">#C8FFFFFF</color>
     <color name="iconTintActive">#ffffff</color>
+
+    <color name="grey">#E9EAEE</color>
+    <color name="yellow">#F8BA0F</color>
+    <color name="goodgrey">#535353</color>
+    <color name="lightgrey">#EEEEEE</color>
 </resources>
