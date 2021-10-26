@@ -2,10 +2,8 @@ package com.thanhtam.bookingtour.data.network
 
 import com.thanhtam.bookingtour.data.responses.LoginResponse
 import com.thanhtam.bookingtour.data.responses.RegisterResponse
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import com.thanhtam.bookingtour.data.responses.ResponseUser
+import retrofit2.http.*
 
 interface AuthApi {
 
