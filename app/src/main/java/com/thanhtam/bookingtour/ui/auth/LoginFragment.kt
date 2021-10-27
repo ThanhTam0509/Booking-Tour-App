@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -15,26 +17,33 @@ import com.thanhtam.bookingtour.data.network.Resource
 import com.thanhtam.bookingtour.data.repository.AuthRepository
 import com.thanhtam.bookingtour.ui.auth.base.BaseFragment
 import com.thanhtam.bookingtour.ui.auth.home.HomeActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepository>() {
+@AndroidEntryPoint
+class LoginFragment : Fragment(R.layout.fragment_login) {
+
+    private lateinit var binding: FragmentLoginBinding
+    private val viewModel by viewModels<AuthViewModel>()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+        binding = view?.let { FragmentLoginBinding.bind(it) }!!
         binding.progress.visible(false)
         binding.btnLogin.enable(false)
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
-            binding.progress.visible(false)
-            when(it){
+            binding.progress.visible(it is Resource.Loading)
+            when (it) {
                 is Resource.Success -> {
-                        viewModel.saveAuthToken(it.value.token)
+                    lifecycleScope.launch {
+                        viewModel.saveAuthToken(
+                            it.value.token!!
+                        )
                         requireActivity().startNewActivity(HomeActivity::class.java)
+                    }
                 }
-                is Resource.Failure -> {
-                    Toast.makeText(requireContext(), "Login Failure", Toast.LENGTH_LONG).show()
-                }
+                is Resource.Failure -> handleApiError(it) { login() }
             }
         })
 
@@ -44,24 +53,17 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         }
 
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString().trim()
-            val password = binding.etPassword.text.toString().trim()
-            binding.progress.visible(true)
-            viewModel.login(email, password)
+           login()
         }
         binding.swipeRight.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
-        
     }
 
-    override fun getViewModel() = AuthViewModel::class.java
-
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ) = FragmentLoginBinding.inflate(inflater, container, false)
-
-    override fun getFragmentRepository() = AuthRepository(remoteDataSource.buildApi(AuthApi::class.java), userPreferences)
-
+    private fun login() {
+        val email = binding.etEmail.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+        binding.progress.visible(true)
+        viewModel.login(email, password)
+    }
 }

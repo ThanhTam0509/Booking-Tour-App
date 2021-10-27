@@ -1,8 +1,10 @@
 package com.thanhtam.bookingtour.data.network
 
 import com.thanhtam.bookingtour.data.responses.DataXX
+import com.thanhtam.bookingtour.data.responses.ResponseTour
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /*
 ///
@@ -12,5 +14,5 @@ import retrofit2.http.GET
 ///
 */interface TourApi {
     @GET("api/v1/tours")
-    suspend fun getTour(): Call<List<DataXX>>
+    suspend fun getTour(): ResponseTour
 }

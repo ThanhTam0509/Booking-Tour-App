@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.thanhtam.bookingtour.data.repository.AuthRepository
 import com.thanhtam.bookingtour.data.repository.BaseRepository
 import com.thanhtam.bookingtour.ui.auth.AuthViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 class ViewModelFactory(
     private val repository: BaseRepository

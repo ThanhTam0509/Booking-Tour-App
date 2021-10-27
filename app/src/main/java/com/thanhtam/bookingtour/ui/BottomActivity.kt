@@ -11,7 +11,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.databinding.ActivityBottomBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BottomActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController

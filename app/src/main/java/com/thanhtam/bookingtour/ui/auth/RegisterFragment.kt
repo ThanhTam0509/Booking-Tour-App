@@ -8,19 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.data.network.AuthApi
 import com.thanhtam.bookingtour.data.network.Resource
 import com.thanhtam.bookingtour.data.repository.AuthRepository
+import com.thanhtam.bookingtour.databinding.FragmentLoginBinding
 import com.thanhtam.bookingtour.databinding.FragmentRegisterBinding
 import com.thanhtam.bookingtour.ui.auth.base.BaseFragment
 import com.thanhtam.bookingtour.ui.auth.home.HomeActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 
-class RegisterFragment : BaseFragment<AuthViewModel, FragmentRegisterBinding, AuthRepository>() {
+@AndroidEntryPoint
+class RegisterFragment : Fragment(R.layout.fragment_register) {
 
+    private lateinit var binding: FragmentRegisterBinding
+    private val viewModel by viewModels<AuthViewModel>()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -53,13 +59,7 @@ class RegisterFragment : BaseFragment<AuthViewModel, FragmentRegisterBinding, Au
 
 
         binding.btnRegister.setOnClickListener {
-            val name = binding.etName.text.toString().trim()
-            val email = binding.etEmail.text.toString().trim()
-            val password = binding.etPassword.text.toString().trim()
-            val passwordConfirm = binding.etRepassword.toString().trim()
-            binding.progress.visible(true)
-            viewModel.register(name, email, password, passwordConfirm)
-            Log.v("Error", "Check this Button ")
+           register()
         }
         binding.swipeLeft.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
@@ -67,14 +67,12 @@ class RegisterFragment : BaseFragment<AuthViewModel, FragmentRegisterBinding, Au
 
     }
 
-    override fun getViewModel() = AuthViewModel::class.java
-
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentRegisterBinding = FragmentRegisterBinding.inflate(inflater, container, false)
-
-    override fun getFragmentRepository() =
-        AuthRepository(remoteDataSource.buildApi(AuthApi::class.java), userPreferences)
-
+    private fun register() {
+        val name = binding.etName.text.toString().trim()
+        val email = binding.etEmail.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+        val passwordConfirm = binding.etRepassword.toString().trim()
+        binding.progress.visible(true)
+        viewModel.register(name, email, password, passwordConfirm)
+    }
 }

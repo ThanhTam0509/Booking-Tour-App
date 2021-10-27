@@ -8,9 +8,12 @@ import com.thanhtam.bookingtour.data.network.Resource
 import com.thanhtam.bookingtour.data.repository.AuthRepository
 import com.thanhtam.bookingtour.data.responses.LoginResponse
 import com.thanhtam.bookingtour.data.responses.RegisterResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AuthViewModel(
+@HiltViewModel
+class AuthViewModel @Inject constructor(
     private val repository: AuthRepository
 ) : ViewModel() {
 
@@ -27,6 +30,7 @@ class AuthViewModel(
         email: String,
         password: String
     ) = viewModelScope.launch {
+        _loginResponse.value = Resource.Loading
         _loginResponse.value = repository.login(email, password)
     }
     fun register(
