@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.thanhtam.bookingtour.R
+import retrofit2.Retrofit
 
 class SearchFragment : Fragment() {
 
