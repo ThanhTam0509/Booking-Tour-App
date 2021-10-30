@@ -1,10 +1,7 @@
 package com.thanhtam.bookingtour.data.network
 
-import com.thanhtam.bookingtour.data.responses.DataXX
-import com.thanhtam.bookingtour.data.responses.ResponseDeleteUser
-import com.thanhtam.bookingtour.data.responses.ResponseUpdateUser
-import com.thanhtam.bookingtour.data.responses.ResponseUser
-import retrofit2.Call
+import com.thanhtam.bookingtour.data.responses.user.ResponseUpdateUser
+import com.thanhtam.bookingtour.data.responses.user.ResponseUser
 import retrofit2.http.*
 
 /*

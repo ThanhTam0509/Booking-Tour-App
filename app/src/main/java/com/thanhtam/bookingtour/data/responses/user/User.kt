@@ -1,4 +1,4 @@
-package com.thanhtam.bookingtour.data.responses
+package com.thanhtam.bookingtour.data.responses.user
 
 data class User(
     val _id: String,

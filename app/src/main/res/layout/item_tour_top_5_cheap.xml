@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/img_Tour_cheap"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/tourcover" />
+
+        <TextView
+            android:id="@+id/txt_difficult_cheap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/img_Tour"
+            android:layout_marginLeft="10dp"
+            android:text="difficult" />
+
+        <TextView
+            android:id="@+id/txt_nameTour_cheap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/img_Tour"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="name" />
+
+        <RatingBar
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:id="@+id/rb_Tour_cheap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/img_Tour" />
+
+        <TextView
+            android:id="@+id/txt_priceTour_cheap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/img_Tour"
+            android:layout_marginLeft="10dp"
+            android:text="price" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,4 +1,6 @@
-package com.thanhtam.bookingtour.data.responses
+package com.thanhtam.bookingtour.data.responses.user
+
+import com.thanhtam.bookingtour.data.responses.Data
 
 /*
 ///

@@ -12,6 +12,13 @@ import javax.inject.Inject
 class RemoteDataSource @Inject constructor(){
     companion object {
         private const val BASE_URL = "https://server-bookingtour.herokuapp.com/"
+
+        fun getRemoteDataSource(): Retrofit{
+            return Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
     }
 
     fun <Api> buildApi(

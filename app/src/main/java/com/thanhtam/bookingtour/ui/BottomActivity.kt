@@ -9,9 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.thanhtam.bookingtour.R
+import com.thanhtam.bookingtour.data.network.TourApi
+import com.thanhtam.bookingtour.data.responses.ResponseTour
 import com.thanhtam.bookingtour.databinding.ActivityBottomBinding
+import com.thanhtam.bookingtour.databinding.FragmentSearchBinding
+import com.thanhtam.bookingtour.ui.adapter.AllTourAdapter
+import com.thanhtam.bookingtour.ui.adapter.TourCheapAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_search.*
+import retrofit2.Call
+import retrofit2.Response
 
 @AndroidEntryPoint
 class BottomActivity : AppCompatActivity() {
@@ -28,6 +38,61 @@ class BottomActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
         setupSmoothBottomMenu()
         supportActionBar?.hide()
+        fetchTourCheap()
+        fetchAllTours()
+
+    }
+    private fun fetchTourCheap(){
+        TourApi().getTour().enqueue(object:
+            retrofit2.Callback<ResponseTour> {
+            override fun onResponse(
+                call: Call<ResponseTour>,
+                response: Response<ResponseTour>
+            ) {
+
+                val tours = response.body()
+
+                tours?.let {
+                    showToursCheap(it)
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseTour>, t: Throwable) {
+                Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+            }
+
+        })
+    }
+    private fun fetchAllTours(){
+        TourApi().getAllTour().enqueue(object:
+            retrofit2.Callback<ResponseTour> {
+            override fun onResponse(
+                call: Call<ResponseTour>,
+                response: Response<ResponseTour>
+            ) {
+
+                val tours = response.body()
+
+                tours?.let {
+                    showTours(it)
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseTour>, t: Throwable) {
+                Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+            }
+
+        })
+
+    }
+
+    private fun showToursCheap(tours: ResponseTour) {
+        rv_topcheap.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        rv_topcheap.adapter = TourCheapAdapter(tours)
+    }
+    private fun showTours(tours: ResponseTour){
+        rv_alltour.layoutManager = LinearLayoutManager(this)
+        rv_alltour.adapter = AllTourAdapter(tours)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -14,7 +14,7 @@ class UserRepository @Inject constructor(
     private val api: UserApi
 ) : BaseRepository() {
 
-    suspend fun getUser(
+    suspend fun currentMe(
         authorization: String
     ) = safeApiCall {
         api.currentMe(authorization)

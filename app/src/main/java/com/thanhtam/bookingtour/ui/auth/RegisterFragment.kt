@@ -22,11 +22,7 @@ import com.thanhtam.bookingtour.ui.auth.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
-@AndroidEntryPoint
-class RegisterFragment : Fragment(R.layout.fragment_register) {
-
-    private lateinit var binding: FragmentRegisterBinding
-    private val viewModel by viewModels<AuthViewModel>()
+class RegisterFragment : BaseFragment<AuthViewModel, FragmentRegisterBinding, AuthRepository>() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -75,4 +71,14 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         binding.progress.visible(true)
         viewModel.register(name, email, password, passwordConfirm)
     }
+
+    override fun getViewModel() = AuthViewModel::class.java
+
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentRegisterBinding.inflate(inflater, container, false)
+
+    override fun getFragmentRepository() =
+        AuthRepository(remoteDataSource.buildApi(AuthApi::class.java), userPreferences)
 }

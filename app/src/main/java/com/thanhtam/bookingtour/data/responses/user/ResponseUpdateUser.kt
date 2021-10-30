@@ -1,4 +1,6 @@
-package com.thanhtam.bookingtour.data.responses
+package com.thanhtam.bookingtour.data.responses.user
+
+import com.thanhtam.bookingtour.data.responses.Data
 
 /*
 ///
@@ -7,7 +9,8 @@ package com.thanhtam.bookingtour.data.responses
 /// Copyright © 2018-2019 Beeknights Co., Ltd. All rights reserved.
 ///
 */
-data class ResponseDeleteUser(
+
+data class ResponseUpdateUser(
     val `data`: Data,
     val status: String
 )
