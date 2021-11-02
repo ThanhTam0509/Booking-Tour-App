@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.data.responses.ResponseTour
+import kotlinx.android.synthetic.main.item_tour.view.*
 import kotlinx.android.synthetic.main.item_tour_top_5_cheap.view.*
 
 /*
@@ -35,14 +36,15 @@ class TourCheapAdapter(val data : ResponseTour) : RecyclerView.Adapter<TourCheap
         holder.view.txt_difficult_cheap.text = data.difficulty
         holder.view.txt_priceTour_cheap.text = data.price.toString() + " " + "USD"
         holder.view.rb_Tour_cheap.rating = data.ratingsAverage.toFloat()
+//
+//        Glide.with(holder.view.context)
+//            .load(data.imageCover)
+//            .into(holder.view.img_Tour_cheap)
 
-        Glide.with(holder.view.context)
-            .load(data.imageCover)
-            .into(holder.view.img_Tour_cheap)
-
-        val url = data.imageCover
+//        val url = data.imageCover
         Picasso.get()
-            .load(url)
+
+            .load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
             .into(holder.view.img_Tour_cheap)
     }
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)

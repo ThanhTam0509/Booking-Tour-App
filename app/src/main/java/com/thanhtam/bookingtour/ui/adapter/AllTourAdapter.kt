@@ -1,10 +1,17 @@
 package com.thanhtam.bookingtour.ui.adapter
 
+import android.icu.number.NumberFormatter.with
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Glide.with
+import com.bumptech.glide.annotation.GlideModule
+import com.bumptech.glide.module.AppGlideModule
+import com.hendraanggrian.pikasso.picasso
+import com.hendraanggrian.pikasso.transformations.grayscale
+import com.hendraanggrian.pikasso.transformations.rounded
 import com.squareup.picasso.Picasso
 import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.data.responses.ResponseTour
@@ -38,14 +45,22 @@ class AllTourAdapter(val data : ResponseTour) : RecyclerView.Adapter<AllTourAdap
         holder.view.txt_priceTour.text = data.price.toString()  + " " + "USD"
         holder.view.rb_Tour.rating = data.ratingsAverage.toFloat()
 
-        Glide.with(holder.view.context)
-            .load(data.imageCover)
+//        GlideApp.with(holder.view.context)
+//            .load(data.imageCover)
+//            .into(holder.view.img_Tour)
+
+//
+//        Glide.with(holder.view.getContext())
+//            .load(data.imageCover)
+//            .into(holder.view.img_Tour);
+
+//        val url = data.imageCover
+        picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
+            .rounded(50, 10)
+            .grayscale()
+            .resize(500, 500)
             .into(holder.view.img_Tour)
 
-        val url = data.imageCover
-        Picasso.get()
-            .load(url)
-            .into(holder.view.img_Tour)
     }
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 }
