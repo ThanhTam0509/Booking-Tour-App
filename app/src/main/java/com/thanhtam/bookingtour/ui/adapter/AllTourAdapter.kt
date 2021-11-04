@@ -1,5 +1,6 @@
 package com.thanhtam.bookingtour.ui.adapter
 
+import android.annotation.SuppressLint
 import android.icu.number.NumberFormatter.with
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +13,12 @@ import com.bumptech.glide.module.AppGlideModule
 import com.hendraanggrian.pikasso.picasso
 import com.hendraanggrian.pikasso.transformations.grayscale
 import com.hendraanggrian.pikasso.transformations.rounded
+import com.iammert.library.ui.multisearchviewlib.databinding.ViewItemBinding
 import com.squareup.picasso.Picasso
 import com.thanhtam.bookingtour.R
+import com.thanhtam.bookingtour.data.responses.DataXX
 import com.thanhtam.bookingtour.data.responses.ResponseTour
+import com.thanhtam.bookingtour.databinding.FragmentSearchBinding
 import kotlinx.android.synthetic.main.item_tour.view.*
 import kotlinx.android.synthetic.main.item_tour_top_5_cheap.view.*
 import kotlinx.android.synthetic.main.item_tour_top_5_cheap.view.txt_nameTour_cheap
@@ -44,15 +48,6 @@ class AllTourAdapter(val data : ResponseTour) : RecyclerView.Adapter<AllTourAdap
         holder.view.txt_difficult.text = data.difficulty
         holder.view.txt_priceTour.text = data.price.toString()  + " " + "USD"
         holder.view.rb_Tour.rating = data.ratingsAverage.toFloat()
-
-//        GlideApp.with(holder.view.context)
-//            .load(data.imageCover)
-//            .into(holder.view.img_Tour)
-
-//
-//        Glide.with(holder.view.getContext())
-//            .load(data.imageCover)
-//            .into(holder.view.img_Tour);
 
 //        val url = data.imageCover
         picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")

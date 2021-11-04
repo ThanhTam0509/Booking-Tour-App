@@ -12,7 +12,7 @@ data class DataXX(
 //    val guides: List<Guide>,
 //    val id: String,
     val imageCover: String,
-//    val images: List<String>,
+    val images: List<String>,
 //    val locations: List<Location>,
 //    val maxGroupSize: Int,
     val name: String,

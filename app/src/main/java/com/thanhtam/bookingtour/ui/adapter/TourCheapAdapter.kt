@@ -5,11 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.hendraanggrian.pikasso.picasso
+import com.hendraanggrian.pikasso.transformations.grayscale
+import com.hendraanggrian.pikasso.transformations.rounded
 import com.squareup.picasso.Picasso
 import com.thanhtam.bookingtour.R
+import com.thanhtam.bookingtour.data.network.Resource
 import com.thanhtam.bookingtour.data.responses.ResponseTour
+import com.thanhtam.bookingtour.databinding.FragmentSearchBinding
 import kotlinx.android.synthetic.main.item_tour.view.*
 import kotlinx.android.synthetic.main.item_tour_top_5_cheap.view.*
+import retrofit2.Call
 
 /*
 ///
@@ -42,9 +48,10 @@ class TourCheapAdapter(val data : ResponseTour) : RecyclerView.Adapter<TourCheap
 //            .into(holder.view.img_Tour_cheap)
 
 //        val url = data.imageCover
-        Picasso.get()
-
-            .load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
+        picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
+            .rounded(50, 10)
+            .grayscale()
+            .resize(500, 500)
             .into(holder.view.img_Tour_cheap)
     }
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)

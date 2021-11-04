@@ -1,27 +1,31 @@
 package com.thanhtam.bookingtour.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.thanhtam.bookingtour.R
+import com.thanhtam.bookingtour.data.network.Resource
 import com.thanhtam.bookingtour.data.network.TourApi
 import com.thanhtam.bookingtour.data.responses.ResponseTour
 import com.thanhtam.bookingtour.databinding.ActivityBottomBinding
+import com.thanhtam.bookingtour.databinding.FragmentSearchBinding
 import com.thanhtam.bookingtour.ui.adapter.AllTourAdapter
 import com.thanhtam.bookingtour.ui.adapter.TourCheapAdapter
-import com.thanhtam.bookingtour.ui.search.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_search.*
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
 
@@ -30,22 +34,38 @@ class BottomActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var binding: ActivityBottomBinding
-    private lateinit var viewModel: SearchViewModel
+    private val viewModel by viewModels<BottomActivityViewModel>()
+    private lateinit var allTourAdapter: AllTourAdapter
+    private lateinit var tourCheapAdapter: TourCheapAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBottomBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
+        val viewModel = ViewModelProvider(this)[BottomActivityViewModel::class.java]
         setContentView(binding.root)
+
+
         navController = findNavController(R.id.main_fragment)
         setupActionBarWithNavController(navController)
         setupSmoothBottomMenu()
         supportActionBar?.hide()
-        fetchTourCheap()
         fetchAllTours()
-//        viewModelForTourCheap()
-//        viewModelForAllTour()
+        fetchTourCheap()
+
+        viewModel.responseTourCheap.observe(this, Observer {
+            when(it){
+                is Resource.Success -> {
+                    lifecycleScope.launch{
+                        viewModel.getTour()
+                        fetchTourCheap()
+                    }
+                }
+                is Resource.Failure -> {
+                    Log.v("Error", "Sai o day ne")
+                }
+            }
+        })
     }
 
     private fun fetchTourCheap() {
@@ -55,7 +75,6 @@ class BottomActivity : AppCompatActivity() {
                 call: Call<ResponseTour>,
                 response: Response<ResponseTour>
             ) {
-
                 val tours = response.body()
 
                 tours?.let {
@@ -69,11 +88,6 @@ class BottomActivity : AppCompatActivity() {
 
         })
     }
-//    private fun viewModelForTourCheap(){
-//        viewModel.responseTourCheap.observe(this, Observer {
-//            fetchTourCheap()
-//        })
-//    }
 
     private fun fetchAllTours() {
         TourApi().getAllTour().enqueue(object :
@@ -96,22 +110,35 @@ class BottomActivity : AppCompatActivity() {
         })
     }
 
-//    private fun viewModelForAllTour() {
-//        viewModel.responseAllTours.observe(this, Observer {
-//            fetchAllTours()
-//        })
-//    }
-
     private fun showToursCheap(tours: ResponseTour) {
+
+//        _binding.apply {
+//            rvTopcheap.apply {
+//                adapter = TourCheapAdapter(tours)
+//                layoutManager =
+//                    LinearLayoutManager(this@BottomActivity, LinearLayoutManager.HORIZONTAL, false)
+//                setHasFixedSize(true)
+//            }
+//        }
         rv_topcheap.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rv_topcheap.adapter = TourCheapAdapter(tours)
-        viewModel.getTour()
+        rv_topcheap.setHasFixedSize(true)
+        rv_topcheap.setItemViewCacheSize(10)
     }
 
     private fun showTours(tours: ResponseTour) {
+//        _binding.apply {
+//            rvAlltour.apply {
+//                adapter = AllTourAdapter(tours)
+//                layoutManager = LinearLayoutManager(this@BottomActivity)
+//                setHasFixedSize(true)
+//            }
+//        }
+
         rv_alltour.layoutManager = LinearLayoutManager(this)
         rv_alltour.adapter = AllTourAdapter(tours)
-        viewModel.getAllTours()
+        rv_alltour.setHasFixedSize(true)
+        rv_alltour.setItemViewCacheSize(10)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
