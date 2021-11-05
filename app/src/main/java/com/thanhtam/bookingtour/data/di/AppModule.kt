@@ -8,7 +8,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import retrofit2.Retrofit
 import javax.inject.Singleton
 
 /*
@@ -38,6 +37,7 @@ object AppModule {
     ): UserApi {
         return remoteDataSource.buildApi(UserApi::class.java)
     }
+
     @Singleton
     @Provides
     fun provideTourApi(

@@ -1,6 +1,5 @@
 package com.thanhtam.bookingtour.data.network
 
-import com.thanhtam.bookingtour.data.responses.DataXX
 import com.thanhtam.bookingtour.data.responses.ResponseTour
 import retrofit2.Call
 import retrofit2.Retrofit

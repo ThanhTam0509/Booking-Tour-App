@@ -1,9 +1,6 @@
 package com.thanhtam.bookingtour.ui.auth
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,10 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.databinding.FragmentLoginBinding
-import com.thanhtam.bookingtour.data.network.AuthApi
 import com.thanhtam.bookingtour.data.network.Resource
-import com.thanhtam.bookingtour.data.repository.AuthRepository
-import com.thanhtam.bookingtour.ui.auth.base.BaseFragment
 import com.thanhtam.bookingtour.ui.auth.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -53,7 +47,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         binding.btnLogin.setOnClickListener {
-           login()
+            login()
         }
         binding.swipeRight.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)

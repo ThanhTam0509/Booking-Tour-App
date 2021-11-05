@@ -21,7 +21,6 @@ class HomeActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.Main).launch {
             delay(2000)
             startActivity(Intent(this@HomeActivity, BottomActivity::class.java))
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         }
     }
 }

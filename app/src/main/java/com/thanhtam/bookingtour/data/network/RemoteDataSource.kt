@@ -1,7 +1,6 @@
 package com.thanhtam.bookingtour.data.network
 
 import com.thanhtam.bookingtour.BuildConfig
-import okhttp3.Authenticator
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -9,11 +8,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import javax.inject.Inject
 
 
-class RemoteDataSource @Inject constructor(){
+class RemoteDataSource @Inject constructor() {
     companion object {
         private const val BASE_URL = "https://server-bookingtour.herokuapp.com/"
 
-        fun getRemoteDataSource(): Retrofit{
+        fun getRemoteDataSource(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

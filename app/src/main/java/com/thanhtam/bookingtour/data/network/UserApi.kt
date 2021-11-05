@@ -15,9 +15,9 @@ import retrofit2.http.*
     suspend fun currentMe(@Header("Authorization") authorization: String): ResponseUser
 
     @PATCH("api/v1/users/updateMe")
-    suspend fun updateMe (
+    suspend fun updateMe(
         @Header("Authorization") authorization: String,
-        @Field ("name") name: String,
-        @Field ("email") email: String
+        @Field("name") name: String,
+        @Field("email") email: String
     ): ResponseUpdateUser
 }

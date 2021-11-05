@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 
-class UserPreferences  @Inject constructor(@ApplicationContext context: Context) {
+class UserPreferences @Inject constructor(@ApplicationContext context: Context) {
     private val applicationContext = context.applicationContext
     private val dataStore: DataStore<Preferences> = applicationContext.createDataStore(
         name = "my_data_store"

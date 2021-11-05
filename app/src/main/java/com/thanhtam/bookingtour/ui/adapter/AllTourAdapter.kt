@@ -6,22 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.Glide.with
-import com.bumptech.glide.annotation.GlideModule
-import com.bumptech.glide.module.AppGlideModule
 import com.hendraanggrian.pikasso.picasso
 import com.hendraanggrian.pikasso.transformations.grayscale
 import com.hendraanggrian.pikasso.transformations.rounded
-import com.iammert.library.ui.multisearchviewlib.databinding.ViewItemBinding
-import com.squareup.picasso.Picasso
 import com.thanhtam.bookingtour.R
-import com.thanhtam.bookingtour.data.responses.DataXX
 import com.thanhtam.bookingtour.data.responses.ResponseTour
-import com.thanhtam.bookingtour.databinding.FragmentSearchBinding
 import kotlinx.android.synthetic.main.item_tour.view.*
-import kotlinx.android.synthetic.main.item_tour_top_5_cheap.view.*
-import kotlinx.android.synthetic.main.item_tour_top_5_cheap.view.txt_nameTour_cheap
 
 /*
 ///
@@ -30,7 +20,7 @@ import kotlinx.android.synthetic.main.item_tour_top_5_cheap.view.txt_nameTour_ch
 /// Copyright © 2018-2019 Beeknights Co., Ltd. All rights reserved.
 ///
 */
-class AllTourAdapter(val data : ResponseTour) : RecyclerView.Adapter<AllTourAdapter.MyViewHolder>() {
+class AllTourAdapter(val data: ResponseTour) : RecyclerView.Adapter<AllTourAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -46,7 +36,7 @@ class AllTourAdapter(val data : ResponseTour) : RecyclerView.Adapter<AllTourAdap
         val data = data.data.data[position]
         holder.view.txt_nameTour.text = data.name
         holder.view.txt_difficult.text = data.difficulty
-        holder.view.txt_priceTour.text = data.price.toString()  + " " + "USD"
+        holder.view.txt_priceTour.text = data.price.toString() + " " + "USD"
         holder.view.rb_Tour.rating = data.ratingsAverage.toFloat()
 
 //        val url = data.imageCover
@@ -57,5 +47,6 @@ class AllTourAdapter(val data : ResponseTour) : RecyclerView.Adapter<AllTourAdap
             .into(holder.view.img_Tour)
 
     }
+
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 }

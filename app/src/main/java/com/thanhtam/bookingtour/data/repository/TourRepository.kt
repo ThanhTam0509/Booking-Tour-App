@@ -20,6 +20,7 @@ class TourRepository @Inject constructor(
     ) = safeApiCall {
         api.getTour()
     }
+
     suspend fun getAllTour(
 
     ) = safeApiCall {

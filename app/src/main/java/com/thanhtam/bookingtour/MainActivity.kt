@@ -1,10 +1,7 @@
 package com.thanhtam.bookingtour
 
-import android.content.Intent
-import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import com.thanhtam.bookingtour.data.UserPreferences
@@ -12,7 +9,6 @@ import com.thanhtam.bookingtour.ui.auth.AuthActivity
 import com.thanhtam.bookingtour.ui.auth.home.HomeActivity
 import com.thanhtam.bookingtour.ui.auth.startNewActivity
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

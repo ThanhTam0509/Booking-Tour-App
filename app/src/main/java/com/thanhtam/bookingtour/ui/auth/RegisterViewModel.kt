@@ -1,7 +1,6 @@
 package com.thanhtam.bookingtour.ui.auth
 
 import com.thanhtam.bookingtour.data.repository.UserRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 /*
 ///

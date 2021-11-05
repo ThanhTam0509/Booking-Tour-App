@@ -17,14 +17,14 @@ class AuthViewModel @Inject constructor(
     private val repository: AuthRepository
 ) : ViewModel() {
 
-    private val _loginResponse : MutableLiveData<Resource<LoginResponse>> = MutableLiveData()
+    private val _loginResponse: MutableLiveData<Resource<LoginResponse>> = MutableLiveData()
     private val _registerResponse: MutableLiveData<Resource<RegisterResponse>> = MutableLiveData()
 
     val loginResponse: LiveData<Resource<LoginResponse>>
-    get() = _loginResponse
+        get() = _loginResponse
 
     val registerResponse: LiveData<Resource<RegisterResponse>>
-    get() = _registerResponse
+        get() = _registerResponse
 
     fun login(
         email: String,
@@ -33,6 +33,7 @@ class AuthViewModel @Inject constructor(
         _loginResponse.value = Resource.Loading
         _loginResponse.value = repository.login(email, password)
     }
+
     fun register(
         name: String,
         email: String,

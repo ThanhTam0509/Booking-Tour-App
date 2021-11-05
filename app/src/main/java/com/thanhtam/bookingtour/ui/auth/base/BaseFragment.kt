@@ -14,7 +14,6 @@ import com.thanhtam.bookingtour.data.network.RemoteDataSource
 import com.thanhtam.bookingtour.data.repository.BaseRepository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import java.util.prefs.Preferences
 
 abstract class BaseFragment<VM : ViewModel, B : ViewBinding, R : BaseRepository> : Fragment() {
 

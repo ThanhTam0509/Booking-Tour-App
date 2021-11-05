@@ -1,14 +1,14 @@
 package com.thanhtam.bookingtour.ui
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.thanhtam.bookingtour.data.network.Resource
-import com.thanhtam.bookingtour.data.repository.TourRepository
+import com.thanhtam.bookingtour.data.network.RemoteDataSource
+import com.thanhtam.bookingtour.data.network.TourApi
 import com.thanhtam.bookingtour.data.responses.ResponseTour
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import retrofit2.Call
+import retrofit2.Response
 import javax.inject.Inject
 
 /*
@@ -21,29 +21,58 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BottomActivityViewModel @Inject constructor(
-    private val repository: TourRepository
-): ViewModel() {
-    private val _responseTourCheap: MutableLiveData<Resource<Call<ResponseTour>>> =
-        MutableLiveData()
-    private val _responseAllTour: MutableLiveData<Resource<Call<ResponseTour>>> = MutableLiveData()
+) : ViewModel() {
+    var recyclerListData: MutableLiveData<ResponseTour> = MutableLiveData()
 
-    val responseTourCheap: MutableLiveData<Resource<Call<ResponseTour>>>
-        get() = _responseTourCheap
-
-    val responseAllTours: MutableLiveData<Resource<Call<ResponseTour>>>
-        get() = _responseAllTour
-
-    fun getTour(
-    ) = viewModelScope.launch {
-        _responseTourCheap.postValue(Resource.Loading)
-        _responseTourCheap.postValue(repository.getTour())
+    fun getRecyclerListDataObserver(): MutableLiveData<ResponseTour> {
+        return recyclerListData
     }
 
-    fun getAllTours(
 
-    ) = viewModelScope.launch {
-        _responseAllTour.postValue(Resource.Loading)
-        _responseAllTour.postValue(repository.getAllTour())
+    fun makeApiCallTourCheap() {
+        val remoteDataSource = RemoteDataSource.getRemoteDataSource().create(TourApi::class.java)
+        val call = remoteDataSource.getTour()
+        call.enqueue(object :
+            retrofit2.Callback<ResponseTour> {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onResponse(
+                call: Call<ResponseTour>,
+                response: Response<ResponseTour>
+            ) {
+                if (response.isSuccessful) {
+                    recyclerListData.postValue(response.body())
+                } else {
+                    recyclerListData.postValue(null)
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseTour>, t: Throwable) {
+                recyclerListData.postValue(null)
+            }
+        })
+    }
+
+    fun makeApiCallAllTour() {
+        val remoteDataSource = RemoteDataSource.getRemoteDataSource().create(TourApi::class.java)
+        val call = remoteDataSource.getAllTour()
+        call.enqueue(object :
+            retrofit2.Callback<ResponseTour> {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onResponse(
+                call: Call<ResponseTour>,
+                response: Response<ResponseTour>
+            ) {
+                if (response.isSuccessful) {
+                    recyclerListData.postValue(response.body())
+                } else {
+                    recyclerListData.postValue(null)
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseTour>, t: Throwable) {
+                recyclerListData.postValue(null)
+            }
+        })
     }
 }
 
