@@ -41,9 +41,6 @@ class AllTourAdapter(val data: ResponseTour) : RecyclerView.Adapter<AllTourAdapt
 
 //        val url = data.imageCover
         picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
-            .rounded(50, 10)
-            .grayscale()
-            .resize(500, 500)
             .into(holder.view.img_Tour)
 
     }

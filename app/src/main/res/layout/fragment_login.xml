@@ -4,72 +4,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/loginParent"
+    android:orientation="vertical"
     tools:context=".ui.auth.LoginFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:weightSum="12">
+
+        <LinearLayout
+            style="@style/parent"
+            android:layout_weight="3"
+            android:background="@drawable/login_shape_bk"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/parent"
+                android:background="@drawable/ic_login_bk"
+                android:contentDescription="login background" />
+        </LinearLayout>
+    </LinearLayout>
 
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="50sp"
-        android:fontFamily="@font/indigo_daisy"
+        android:layout_above="@id/tv_subtitle"
         android:layout_marginStart="25dp"
-        android:layout_marginBottom="10dp"
-        android:layout_above="@id/tv_subtitle"/>
+        android:fontFamily="@font/indigo_daisy"
+        android:text="@string/app_name"
+        android:textSize="50sp" />
 
     <TextView
         android:id="@+id/tv_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tag"
-        android:textSize="17sp"
-        android:fontFamily="@font/roboto_regular"
+        android:layout_above="@id/et_email"
         android:layout_marginStart="25dp"
-        android:layout_marginBottom="50dp"
-        android:layout_above="@id/et_email"/>
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/tag"
+        android:textColor="#000000"
+        android:textSize="17sp" />
 
     <EditText
         android:id="@+id/et_email"
+        style="@style/viewParent"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="@string/e_mail"
+        android:layout_above="@id/et_password"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:padding="15dp"
-        android:inputType="textEmailAddress"
         android:fontFamily="@font/roboto_regular"
-        android:layout_above="@id/et_password"
-        android:background="@drawable/et_custom"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
         android:textSize="15sp" />
 
     <EditText
+        style="@style/viewParent"
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="@string/password"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:padding="15dp"
-        android:fontFamily="@font/roboto_regular"
-        android:inputType="textPassword"
         android:layout_centerInParent="true"
-        android:background="@drawable/et_custom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/roboto_regular"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="15dp"
         android:textSize="15sp" />
 
     <Button
         android:id="@+id/btn_login"
+        style="@style/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_password"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/btn_custom"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/login"
         android:textColor="@android:color/white" />
+
 
     <ImageView
         android:layout_width="30dp"
@@ -95,5 +118,30 @@
         android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/btnFacebookInterface"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn_login"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="235dp"
+        android:layout_marginBottom="170dp"
+        android:background="@drawable/ic_facebook"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/btnLoginGoogleInterface"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn_login"
+        android:layout_gravity="center"
+        android:layout_marginStart="235dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="170dp"
+        android:background="@drawable/ic_google_plus"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </RelativeLayout>

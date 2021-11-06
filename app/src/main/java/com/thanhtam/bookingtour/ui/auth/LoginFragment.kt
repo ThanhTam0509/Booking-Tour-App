@@ -1,6 +1,7 @@
 package com.thanhtam.bookingtour.ui.auth
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -8,11 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.thanhtam.bookingtour.R
-import com.thanhtam.bookingtour.databinding.FragmentLoginBinding
 import com.thanhtam.bookingtour.data.network.Resource
+import com.thanhtam.bookingtour.databinding.FragmentLoginBinding
 import com.thanhtam.bookingtour.ui.auth.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+
 
 @AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -22,6 +24,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
         binding = view?.let { FragmentLoginBinding.bind(it) }!!
         binding.progress.visible(false)
         binding.btnLogin.enable(false)

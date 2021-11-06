@@ -117,4 +117,7 @@ dependencies {
 
 //    Pikasso
     implementation "com.hendraanggrian.pikasso:pikasso:0.2"
+
+//    fb
+    implementation 'com.facebook.android:facebook-login:5.11.0'
 }
