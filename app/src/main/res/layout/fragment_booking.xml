@@ -7,10 +7,11 @@
     tools:context=".ui.booking.BookingFragment">
 
     <ImageView
+        android:scaleType="centerCrop"
         android:id="@+id/imageView3"
         android:layout_width="368dp"
         android:layout_height="288dp"
-        android:src="@drawable/convenient"
+        android:src="@drawable/personrelax"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,12 +25,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:text="Your booking is empty, Let booking tour"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Booking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        style="@style/loginButton"
+        android:id="@+id/btn_Booking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="200dp"

@@ -1,6 +1,8 @@
 package com.thanhtam.bookingtour.ui.profile
 
-import dagger.hilt.android.lifecycle.HiltViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 /*
 ///
@@ -10,5 +12,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 ///
 */
 
-class ProfileViewModel {
+class ProfileViewModel: ViewModel() {
+    private val _text = MutableLiveData<String>().apply {
+        value = "This is Profile Fragment"
+    }
+    val text: LiveData<String> = _text
 }

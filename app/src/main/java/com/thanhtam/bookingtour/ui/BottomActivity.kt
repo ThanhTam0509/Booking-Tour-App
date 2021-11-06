@@ -39,8 +39,6 @@ class BottomActivity : AppCompatActivity() {
         supportActionBar?.hide()
         fetchAllTours()
         fetchTourCheap()
-
-
     }
 
 
@@ -51,7 +49,7 @@ class BottomActivity : AppCompatActivity() {
 
             if (it != null) {
                 showToursCheap(it)
-                TourCheapAdapter(it).data.data.data.size
+//                TourCheapAdapter(it).data.data.data.size
                 TourCheapAdapter(it).notifyDataSetChanged()
             } else {
                 Toast.makeText(
@@ -72,7 +70,7 @@ class BottomActivity : AppCompatActivity() {
 
             if (it != null) {
                 showTours(it)
-                AllTourAdapter(it).data.data.data.size
+//                AllTourAdapter(it).data.data.data.size
                 AllTourAdapter(it).notifyDataSetChanged()
             } else {
                 Toast.makeText(

@@ -1,6 +1,8 @@
 package com.thanhtam.bookingtour.ui.booking
 
-import dagger.hilt.android.lifecycle.HiltViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 /*
 ///
@@ -9,5 +11,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 /// Copyright © 2018-2019 Beeknights Co., Ltd. All rights reserved.
 ///
 */
-class BookingViewModel {
+class BookingViewModel: ViewModel() {
+    private val _text = MutableLiveData<String>().apply {
+        value = "This is Booking Fragment"
+    }
+    val text: LiveData<String> = _text
 }
