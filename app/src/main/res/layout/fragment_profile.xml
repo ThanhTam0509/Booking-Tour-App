@@ -1,11 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".ui.profile.ProfileFragment">
 
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:background="@drawable/background_top">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/avt"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="150dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_bottom">
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:text="Information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txt_nameProfile"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:text="name:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="15dp"
+                android:id="@+id/txt_emailProfile"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:text="email:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:text="Support"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="15dp"
+                android:id="@+id/txt_help"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:text="Help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="15dp"
+                android:id="@+id/txt_about"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:text="About Booking Tour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:text="Version: 1.1 - 20211107"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:layout_marginTop="200dp"
+                android:layout_gravity="center"
+                style="@style/loginButton"
+                android:text="edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

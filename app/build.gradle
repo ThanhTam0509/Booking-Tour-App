@@ -120,4 +120,7 @@ dependencies {
 
 //    fb
     implementation 'com.facebook.android:facebook-login:5.11.0'
+
+//    circle image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
