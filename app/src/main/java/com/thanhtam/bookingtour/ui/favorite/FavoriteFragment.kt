@@ -15,8 +15,6 @@ import kotlinx.android.synthetic.main.fragment_favorite.*
 @AndroidEntryPoint
 class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
 
-//    private lateinit var binding: FragmentFavoriteBinding
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_Explorer.setOnClickListener {

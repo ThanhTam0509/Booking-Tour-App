@@ -28,13 +28,19 @@ class BottomActivityViewModel @Inject constructor(
         return recyclerListData
     }
 
+    var _recyclerListData: MutableLiveData<ResponseTour> = MutableLiveData()
+
+    fun _getRecyclerListDataObserver(): MutableLiveData<ResponseTour> {
+        return _recyclerListData
+    }
+
 
     fun makeApiCallTourCheap() {
         val remoteDataSource = RemoteDataSource.getRemoteDataSource().create(TourApi::class.java)
         val call = remoteDataSource.getTour()
         call.enqueue(object :
             retrofit2.Callback<ResponseTour> {
-            @SuppressLint("NotifyDataSetChanged")
+            @SuppressLint("NotifyDataSetChanged", "NullSafeMutableLiveData")
             override fun onResponse(
                 call: Call<ResponseTour>,
                 response: Response<ResponseTour>
@@ -46,6 +52,7 @@ class BottomActivityViewModel @Inject constructor(
                 }
             }
 
+            @SuppressLint("NullSafeMutableLiveData")
             override fun onFailure(call: Call<ResponseTour>, t: Throwable) {
                 recyclerListData.postValue(null)
             }
@@ -57,20 +64,21 @@ class BottomActivityViewModel @Inject constructor(
         val call = remoteDataSource.getAllTour()
         call.enqueue(object :
             retrofit2.Callback<ResponseTour> {
-            @SuppressLint("NotifyDataSetChanged")
+            @SuppressLint("NotifyDataSetChanged", "NullSafeMutableLiveData")
             override fun onResponse(
                 call: Call<ResponseTour>,
                 response: Response<ResponseTour>
             ) {
                 if (response.isSuccessful) {
-                    recyclerListData.postValue(response.body())
+                    _recyclerListData.postValue(response.body())
                 } else {
-                    recyclerListData.postValue(null)
+                    _recyclerListData.postValue(null)
                 }
             }
 
+            @SuppressLint("NullSafeMutableLiveData")
             override fun onFailure(call: Call<ResponseTour>, t: Throwable) {
-                recyclerListData.postValue(null)
+                _recyclerListData.postValue(null)
             }
         })
     }

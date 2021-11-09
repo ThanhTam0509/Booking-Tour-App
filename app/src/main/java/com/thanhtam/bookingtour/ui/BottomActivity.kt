@@ -27,6 +27,7 @@ class BottomActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var binding: ActivityBottomBinding
+    private lateinit var adapter: TourCheapAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,8 +38,8 @@ class BottomActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
         setupSmoothBottomMenu()
         supportActionBar?.hide()
-        fetchAllTours()
         fetchTourCheap()
+        fetchAllTours()
     }
 
 
@@ -66,7 +67,7 @@ class BottomActivity : AppCompatActivity() {
     @SuppressLint("NotifyDataSetChanged")
     private fun fetchAllTours() {
         val viewModel = ViewModelProvider(this)[BottomActivityViewModel::class.java]
-        viewModel.getRecyclerListDataObserver().observe(this, Observer<ResponseTour> {
+        viewModel._getRecyclerListDataObserver().observe(this, Observer<ResponseTour> {
 
             if (it != null) {
                 showTours(it)
@@ -87,6 +88,7 @@ class BottomActivity : AppCompatActivity() {
         rv_topcheap.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rv_topcheap.adapter = TourCheapAdapter(tours)
         rv_topcheap.setHasFixedSize(true)
+
     }
 
     private fun showTours(tours: ResponseTour) {
@@ -94,6 +96,8 @@ class BottomActivity : AppCompatActivity() {
         rv_alltour.adapter = AllTourAdapter(tours)
         rv_alltour.setHasFixedSize(true)
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.another_menu, menu)

@@ -1,5 +1,6 @@
 package com.thanhtam.bookingtour.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,21 +32,24 @@ class TourCheapAdapter(val data: ResponseTour) :
 
     override fun getItemCount() = data.data.data.size
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = data.data.data[position]
         holder.view.txt_nameTour_cheap.text = data.name
         holder.view.txt_difficult_cheap.text = data.difficulty
         holder.view.txt_priceTour_cheap.text = data.price.toString() + " " + "USD"
         holder.view.rb_Tour_cheap.rating = data.ratingsAverage.toFloat()
-//
-//        Glide.with(holder.view.context)
-//            .load(data.imageCover)
-//            .into(holder.view.img_Tour_cheap)
 
-//        val url = data.imageCover
         picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
             .into(holder.view.img_Tour_cheap)
     }
 
-    class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+    inner class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view){
+        init {
+            view.setOnClickListener {
+                val position: Int = adapterPosition
+
+            }
+        }
+    }
 }

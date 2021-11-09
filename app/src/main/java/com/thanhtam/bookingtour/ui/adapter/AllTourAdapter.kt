@@ -5,6 +5,7 @@ import android.icu.number.NumberFormatter.with
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.hendraanggrian.pikasso.picasso
 import com.hendraanggrian.pikasso.transformations.grayscale
@@ -32,6 +33,7 @@ class AllTourAdapter(val data: ResponseTour) : RecyclerView.Adapter<AllTourAdapt
 
     override fun getItemCount() = data.data.data.size
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = data.data.data[position]
         holder.view.txt_nameTour.text = data.name
@@ -39,11 +41,13 @@ class AllTourAdapter(val data: ResponseTour) : RecyclerView.Adapter<AllTourAdapt
         holder.view.txt_priceTour.text = data.price.toString() + " " + "USD"
         holder.view.rb_Tour.rating = data.ratingsAverage.toFloat()
 
-//        val url = data.imageCover
         picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
             .into(holder.view.img_Tour)
 
     }
 
-    class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+    inner class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view){
+
+
+    }
 }
