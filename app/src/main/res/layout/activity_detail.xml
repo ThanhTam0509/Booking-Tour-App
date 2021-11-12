@@ -7,7 +7,7 @@
     tools:context=".ui.DetailActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/img_tourDetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -27,7 +27,7 @@
         app:srcCompat="@drawable/ic_arrow_left" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txt_nameDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -37,26 +37,26 @@
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/img_tourDetail" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_nameDetail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView6"
-        app:srcCompat="@drawable/star" />
+        app:layout_constraintTop_toTopOf="@+id/txt_nameDetail" />
 
-    <TextView
-        android:id="@+id/textView7"
+    <RatingBar
+        android:numStars="5"
+        android:stepSize="1"
+        android:theme="@style/RatingBar"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:id="@+id/rb_tourDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
-        android:fontFamily="@font/rubik"
-        android:text="4.5"
-        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
@@ -70,8 +70,8 @@
         android:text="Available flight :"
         android:textColor="#044363"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="@+id/txt_nameDetail"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nameDetail" />
 
     <TextView
         android:id="@+id/textView9"
@@ -97,11 +97,10 @@
         app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/txt_tourPriceDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:fontFamily="@font/roboto"
         android:text="$3,00 - $8,00"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView9"
@@ -191,7 +190,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/txt_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -200,7 +199,6 @@
         android:maxLines="6"
         android:ellipsize="end"
         android:text="Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />

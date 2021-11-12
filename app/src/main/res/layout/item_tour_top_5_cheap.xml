@@ -121,6 +121,9 @@
                     android:src="@drawable/ic_baseline_star_24" />
 
                 <RatingBar
+                    android:numStars="5"
+                    android:stepSize="1"
+                    android:theme="@style/RatingBar"
                     android:id="@+id/rb_Tour_cheap"
                     style="@style/Widget.AppCompat.RatingBar.Small"
                     android:layout_width="wrap_content"

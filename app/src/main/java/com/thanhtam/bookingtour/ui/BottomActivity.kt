@@ -1,6 +1,7 @@
 package com.thanhtam.bookingtour.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -70,9 +71,9 @@ class BottomActivity : AppCompatActivity() {
         viewModel._getRecyclerListDataObserver().observe(this, Observer<ResponseTour> {
 
             if (it != null) {
-                showTours(it)
+                showTours(it, this)
 //                AllTourAdapter(it).data.data.data.size
-                AllTourAdapter(it).notifyDataSetChanged()
+                AllTourAdapter(it, this).notifyDataSetChanged()
             } else {
                 Toast.makeText(
                     this@BottomActivity,
@@ -91,9 +92,9 @@ class BottomActivity : AppCompatActivity() {
 
     }
 
-    private fun showTours(tours: ResponseTour) {
+    private fun showTours(tours: ResponseTour, c: Context) {
         rv_alltour.layoutManager = LinearLayoutManager(this)
-        rv_alltour.adapter = AllTourAdapter(tours)
+        rv_alltour.adapter = AllTourAdapter(tours, this)
         rv_alltour.setHasFixedSize(true)
     }
 

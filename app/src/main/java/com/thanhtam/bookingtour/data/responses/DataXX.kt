@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class DataXX(
 //    val _id: String,
-//    val description: String,
+    val description: String,
     val difficulty: String,
 //    val duration: Int,
 //    val durationWeeks: Int,
