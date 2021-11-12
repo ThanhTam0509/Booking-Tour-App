@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.thanhtam.bookingtour.ui.BottomActivityViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
     app:cardBackgroundColor="@color/white"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -163,5 +172,5 @@
     </LinearLayout>
 
 
-
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>

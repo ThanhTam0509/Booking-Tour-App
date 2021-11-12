@@ -5,6 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.search.SearchFragment">
 
+    <data>
+
+    </data>
+
     <ScrollView
         style="@style/parent">
         <LinearLayout
