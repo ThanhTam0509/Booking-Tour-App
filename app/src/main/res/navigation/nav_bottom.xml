@@ -13,7 +13,7 @@
         <action
             android:id="@+id/action_searchFragment_to_bookingFragment"
             app:destination="@id/bookingFragment"
-            app:popUpTo="@id/searchFragment"
+            app:popUpTo="@id/nav_bottom"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -24,12 +24,12 @@
         <action
             android:id="@+id/action_bookingFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment"
-            app:popUpTo="@id/bookingFragment"
+            app:popUpTo="@id/nav_bottom"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_bookingFragment_to_searchFragment"
             app:destination="@id/searchFragment"
-            app:popUpTo="@id/bookingFragment"
+            app:popUpTo="@id/nav_bottom"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -40,17 +40,17 @@
         <action
             android:id="@+id/action_favoriteFragment_to_profileFragment"
             app:destination="@id/profileFragment"
-            app:popUpTo="@id/favoriteFragment"
+            app:popUpTo="@id/nav_bottom"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_favoriteFragment_to_bookingFragment"
             app:destination="@id/bookingFragment"
-            app:popUpTo="@id/favoriteFragment"
+            app:popUpTo="@id/nav_bottom"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_favoriteFragment_to_searchFragment"
             app:destination="@id/searchFragment"
-            app:popUpTo="@id/favoriteFragment"
+            app:popUpTo="@id/nav_bottom"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -61,7 +61,7 @@
         <action
             android:id="@+id/action_profileFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment"
-            app:popUpTo="@id/profileFragment"
+            app:popUpTo="@id/nav_bottom"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
