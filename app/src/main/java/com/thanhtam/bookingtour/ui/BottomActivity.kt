@@ -3,6 +3,7 @@ package com.thanhtam.bookingtour.ui
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.PopupMenu
@@ -28,7 +29,6 @@ class BottomActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var binding: ActivityBottomBinding
-    private lateinit var adapter: TourCheapAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

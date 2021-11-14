@@ -14,6 +14,7 @@ import com.hendraanggrian.pikasso.transformations.grayscale
 import com.hendraanggrian.pikasso.transformations.rounded
 import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.data.responses.ResponseTour
+import com.thanhtam.bookingtour.databinding.ItemTourBinding
 import com.thanhtam.bookingtour.ui.DetailActivity
 import kotlinx.android.synthetic.main.item_tour.view.*
 
@@ -24,14 +25,14 @@ import kotlinx.android.synthetic.main.item_tour.view.*
 /// Copyright © 2018-2019 Beeknights Co., Ltd. All rights reserved.
 ///
 */
-class AllTourAdapter(val data: ResponseTour, var c: Context) : RecyclerView.Adapter<AllTourAdapter.MyViewHolder>() {
+class AllTourAdapter(val data: ResponseTour, var c: Context) :
+    RecyclerView.Adapter<AllTourAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_tour, parent, false)
-        )
+        val binding = ItemTourBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding, parent.context)
+
     }
 
     override fun getItemCount() = data.data.data.size
@@ -39,11 +40,11 @@ class AllTourAdapter(val data: ResponseTour, var c: Context) : RecyclerView.Adap
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = data.data.data[position]
-        holder.view.txt_nameTour.text = data.name
-        holder.view.txt_difficult.text = data.difficulty
-        holder.view.txt_priceTour.text = data.price.toString() + " " + "USD"
-        holder.view.rb_Tour.rating = data.ratingsAverage.toFloat()
-        holder.view.setOnClickListener {
+        holder.binding.txtNameTour.text = data.name
+        holder.binding.txtDifficult.text = data.difficulty
+        holder.binding.txtPriceTour.text = data.price.toString() + " " + "USD"
+        holder.binding.rbTour.rating = data.ratingsAverage.toFloat()
+        holder.binding.imgTour.setOnClickListener {
             var allTourIntent = Intent(c, DetailActivity::class.java)
             allTourIntent.putExtra("tourName", data.name)
             allTourIntent.putExtra("tourDifficulty", data.difficulty)
@@ -55,9 +56,9 @@ class AllTourAdapter(val data: ResponseTour, var c: Context) : RecyclerView.Adap
         }
 
         picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
-            .into(holder.view.img_Tour)
+            .into(holder.binding.imgTour)
 
     }
 
-    inner class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+    inner class MyViewHolder(val binding: ItemTourBinding, val context: Context) : RecyclerView.ViewHolder(binding.root)
 }

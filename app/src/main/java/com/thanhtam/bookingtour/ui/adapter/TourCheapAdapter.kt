@@ -1,6 +1,7 @@
 package com.thanhtam.bookingtour.ui.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.hendraanggrian.pikasso.transformations.grayscale
 import com.hendraanggrian.pikasso.transformations.rounded
 import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.data.responses.ResponseTour
+import com.thanhtam.bookingtour.databinding.ItemTourTop5CheapBinding
 import kotlinx.android.synthetic.main.item_tour_top_5_cheap.view.*
 
 /*
@@ -24,10 +26,8 @@ class TourCheapAdapter(val data: ResponseTour) :
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_tour_top_5_cheap, parent, false)
-        )
+        val binding = ItemTourTop5CheapBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding, parent.context)
     }
 
     override fun getItemCount() = data.data.data.size
@@ -35,21 +35,17 @@ class TourCheapAdapter(val data: ResponseTour) :
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = data.data.data[position]
-        holder.view.txt_nameTour_cheap.text = data.name
-        holder.view.txt_difficult_cheap.text = data.difficulty
-        holder.view.txt_priceTour_cheap.text = data.price.toString() + " " + "USD"
-        holder.view.rb_Tour_cheap.rating = data.ratingsAverage.toFloat()
+        holder.binding.txtNameTourCheap.text = data.name
+        holder.binding.txtDifficultCheap.text = data.difficulty
+        holder.binding.txtPriceTourCheap.text = data.price.toString() + " " + "USD"
+        holder.binding.rbTourCheap.rating = data.ratingsAverage.toFloat()
 
         picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
-            .into(holder.view.img_Tour_cheap)
+            .into(holder.binding.imgTourCheap)
     }
 
-    inner class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view){
-        init {
-            view.setOnClickListener {
-                val position: Int = adapterPosition
+    inner class MyViewHolder(val binding: ItemTourTop5CheapBinding, val context: Context) : RecyclerView.ViewHolder(binding.root){
 
-            }
-        }
+
     }
 }
