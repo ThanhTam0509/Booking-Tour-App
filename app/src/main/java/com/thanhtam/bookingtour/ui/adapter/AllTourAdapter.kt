@@ -57,8 +57,8 @@ class AllTourAdapter(val data: ResponseTour, var c: Context) :
 
         picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
             .into(holder.binding.imgTour)
-
     }
 
-    inner class MyViewHolder(val binding: ItemTourBinding, val context: Context) : RecyclerView.ViewHolder(binding.root)
+    inner class MyViewHolder(val binding: ItemTourBinding, val context: Context) :
+        RecyclerView.ViewHolder(binding.root)
 }
