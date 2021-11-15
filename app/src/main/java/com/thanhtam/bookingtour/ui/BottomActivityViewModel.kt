@@ -3,10 +3,13 @@ package com.thanhtam.bookingtour.ui
 import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.thanhtam.bookingtour.data.network.RemoteDataSource
 import com.thanhtam.bookingtour.data.network.TourApi
+import com.thanhtam.bookingtour.data.repository.TourRepository
 import com.thanhtam.bookingtour.data.responses.ResponseTour
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
 import javax.inject.Inject
@@ -22,18 +25,17 @@ import javax.inject.Inject
 @HiltViewModel
 class BottomActivityViewModel @Inject constructor(
 ) : ViewModel() {
-    var recyclerListData: MutableLiveData<ResponseTour> = MutableLiveData()
+    val recyclerListData: MutableLiveData<ResponseTour> = MutableLiveData()
 
     fun getRecyclerListDataObserver(): MutableLiveData<ResponseTour> {
         return recyclerListData
     }
 
-    var _recyclerListData: MutableLiveData<ResponseTour> = MutableLiveData()
+    val _recyclerListData: MutableLiveData<ResponseTour> = MutableLiveData()
 
     fun _getRecyclerListDataObserver(): MutableLiveData<ResponseTour> {
         return _recyclerListData
     }
-
 
     fun makeApiCallTourCheap() {
         val remoteDataSource = RemoteDataSource.getRemoteDataSource().create(TourApi::class.java)

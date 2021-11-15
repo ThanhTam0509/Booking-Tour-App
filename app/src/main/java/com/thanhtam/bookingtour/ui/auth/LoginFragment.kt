@@ -24,11 +24,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide() //        bên Fragment viết ẩn ActionBar như thế này
+
         binding = view?.let { FragmentLoginBinding.bind(it) }!!
         binding.progress.visible(false)
         binding.btnLogin.enable(false)
 
+//        If user not input username, password hiding button
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             binding.progress.visible(it is Resource.Loading)
             when (it) {
