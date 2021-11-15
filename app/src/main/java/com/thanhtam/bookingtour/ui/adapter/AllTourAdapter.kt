@@ -55,6 +55,7 @@ class AllTourAdapter(val data: ResponseTour, var c: Context) :
             c.startActivity(allTourIntent)
         }
 
+//        this is get image from api
         picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
             .into(holder.binding.imgTour)
     }

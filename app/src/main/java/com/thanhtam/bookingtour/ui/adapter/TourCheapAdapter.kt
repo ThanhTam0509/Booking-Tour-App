@@ -40,6 +40,7 @@ class TourCheapAdapter(val data: ResponseTour) :
         holder.binding.txtPriceTourCheap.text = data.price.toString() + " " + "USD"
         holder.binding.rbTourCheap.rating = data.ratingsAverage.toFloat()
 
+        //        this is get image from api
         picasso.load("https://server-bookingtour.herokuapp.com/img/tours/${data.imageCover}")
             .into(holder.binding.imgTourCheap)
     }

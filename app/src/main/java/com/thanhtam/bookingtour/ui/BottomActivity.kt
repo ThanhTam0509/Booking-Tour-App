@@ -40,6 +40,7 @@ class BottomActivity : AppCompatActivity() {
         setContentView(binding.root)
         navController = findNavController(R.id.main_fragment)
         setupActionBarWithNavController(navController)
+
         setupSmoothBottomMenu()
         supportActionBar?.hide()
         fetchTourCheap()

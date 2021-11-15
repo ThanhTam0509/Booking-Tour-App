@@ -3,6 +3,10 @@ package com.thanhtam.bookingtour.data.network
 import com.thanhtam.bookingtour.data.responses.ResponseTour
 import okhttp3.ResponseBody
 
+/*
+* Success, Failure, Loading
+* */
+
 sealed class Resource<out T> : com.bumptech.glide.load.engine.Resource<ResponseTour> {
     data class Success<out T>(val value: T) : Resource<T>()
     data class Failure(

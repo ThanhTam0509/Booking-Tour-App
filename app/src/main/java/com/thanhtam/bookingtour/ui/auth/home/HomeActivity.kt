@@ -18,6 +18,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         supportActionBar?.hide()
 
+//        this is file animation
         CoroutineScope(Dispatchers.Main).launch {
             delay(2000)
             startActivity(Intent(this@HomeActivity, BottomActivity::class.java))
