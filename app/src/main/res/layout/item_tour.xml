@@ -37,10 +37,10 @@
                 android:layout_marginTop="10dp"
                 android:id="@+id/img_Tour"
                 android:layout_width="match_parent"
+                android:background="@drawable/loadingimage"
                 android:layout_height="150dp"
-                android:background="@drawable/tourcover"
                 android:scaleType="centerCrop"
-                android:src="@drawable/tourcover" />
+                android:src="@drawable/loadingimage" />
 
         </androidx.cardview.widget.CardView>
 

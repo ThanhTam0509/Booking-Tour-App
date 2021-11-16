@@ -41,5 +41,13 @@ class DetailActivity : AppCompatActivity() {
             val intent = Intent(this@DetailActivity, CheckActivity::class.java)
             startActivity(intent)
         }
+        imgBack.setOnClickListener {
+            this.finish()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        this.finish()
     }
 }

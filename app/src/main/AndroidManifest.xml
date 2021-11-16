@@ -20,7 +20,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.CheckActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ui.DetailActivity"
             android:exported="false" />

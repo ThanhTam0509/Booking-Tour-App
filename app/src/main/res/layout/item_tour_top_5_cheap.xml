@@ -35,11 +35,10 @@
                 android:id="@+id/img_Tour_cheap"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@drawable/tourcover"
-
+                android:background="@drawable/loadingimage"
 
                 android:scaleType="centerCrop"
-                android:src="@drawable/tourcover" />
+                android:src="@drawable/loadingimage" />
 
         </androidx.cardview.widget.CardView>
 
