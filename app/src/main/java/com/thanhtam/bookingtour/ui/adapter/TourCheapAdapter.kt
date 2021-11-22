@@ -43,14 +43,14 @@ class TourCheapAdapter(val data: ResponseTour, var c: Context) :
         holder.binding.txtPriceTourCheap.text = data.price.toString() + " " + "USD"
         holder.binding.rbTourCheap.rating = data.ratingsAverage.toFloat()
         holder.binding.imgTourCheap.setOnClickListener {
-            var topTourIntent = Intent(c, DetailActivity::class.java)
-            topTourIntent.putExtra("topTourName", data.name)
-            topTourIntent.putExtra("topTourDifficulty", data.difficulty)
-            topTourIntent.putExtra("topTourPrice", data.price)
-            topTourIntent.putExtra("topTourRating", data.ratingsAverage)
-            topTourIntent.putExtra("topTourDescription", data.description)
-            topTourIntent.putExtra("topTourImg", data.imageCover)
-            c.startActivity(topTourIntent)
+            var allTourIntent = Intent(c, DetailActivity::class.java)
+            allTourIntent.putExtra("tourName", data.name)
+            allTourIntent.putExtra("tourDifficulty", data.difficulty)
+            allTourIntent.putExtra("tourPrice", data.price)
+            allTourIntent.putExtra("tourRating", data.ratingsAverage)
+            allTourIntent.putExtra("tourDescription", data.description)
+            allTourIntent.putExtra("tourImg", data.imageCover)
+            c.startActivity(allTourIntent)
         }
 
 

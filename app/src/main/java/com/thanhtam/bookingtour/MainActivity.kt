@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         val userPreferences = UserPreferences(this)
 
+//        phần animation xe chạy
         userPreferences.authToken.asLiveData().observe(this, Observer {
             val activity = if (it == null) AuthActivity::class.java else HomeActivity::class.java
             CoroutineScope(Dispatchers.Main).launch {
