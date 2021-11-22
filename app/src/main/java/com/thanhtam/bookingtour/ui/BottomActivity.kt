@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -26,6 +27,10 @@ import com.thanhtam.bookingtour.ui.adapter.AllTourAdapter
 import com.thanhtam.bookingtour.ui.adapter.TourCheapAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_search.*
+import org.json.JSONObject
+import java.net.HttpURLConnection
+import java.net.URL
+import java.net.URLEncoder
 
 
 @AndroidEntryPoint
@@ -54,9 +59,9 @@ class BottomActivity : AppCompatActivity() {
         viewModel.getRecyclerListDataObserver().observe(this, Observer<ResponseTour> {
 
             if (it != null) {
-                showToursCheap(it)
+                showToursCheap(it, this)
 //                TourCheapAdapter(it).data.data.data.size
-                TourCheapAdapter(it).notifyDataSetChanged()
+                TourCheapAdapter(it, this).notifyDataSetChanged()
             } else {
                 Toast.makeText(
                     this@BottomActivity,
@@ -89,9 +94,9 @@ class BottomActivity : AppCompatActivity() {
         viewModel.makeApiCallAllTour()
     }
 
-    private fun showToursCheap(tours: ResponseTour) {
+    private fun showToursCheap(tours: ResponseTour, c: Context) {
         rv_topcheap.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rv_topcheap.adapter = TourCheapAdapter(tours)
+        rv_topcheap.adapter = TourCheapAdapter(tours, this)
         rv_topcheap.setHasFixedSize(true)
 
     }

@@ -25,7 +25,6 @@
             android:name=".ui.DetailActivity"
             android:exported="false" />
         <activity
-            android:noHistory="true"
             android:name=".ui.BottomActivity"
             android:exported="true" />
         <activity
