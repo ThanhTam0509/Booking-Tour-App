@@ -1,10 +1,11 @@
 package com.thanhtam.bookingtour.ui
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.michalsvec.singlerowcalendar.calendar.CalendarChangesObserver
 import com.michalsvec.singlerowcalendar.calendar.CalendarViewManager
 import com.michalsvec.singlerowcalendar.calendar.SingleRowCalendarAdapter
@@ -23,6 +24,7 @@ class CheckActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check)
+        checkOut()
 
         calendar.time = Date()
         currentMonth = calendar[Calendar.MONTH]
@@ -31,6 +33,7 @@ class CheckActivity : AppCompatActivity() {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             window.statusBarColor = Color.WHITE
         }
+
         val myCalendarViewManager = object : CalendarViewManager {
             override fun setCalendarViewResourceId(
                 position: Int,
@@ -167,5 +170,12 @@ class CheckActivity : AppCompatActivity() {
         }
         calendar.add(Calendar.DATE, -1)
         return list
+    }
+
+    private fun checkOut() {
+        btnTime1.setOnClickListener {
+            val intent = Intent(this, CardActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

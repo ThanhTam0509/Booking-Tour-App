@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -126,4 +127,13 @@ dependencies {
 
 //  calendar
     implementation 'com.michalsvec:single-row-calednar:1.0.0'
+
+//    stripe
+    implementation 'com.stripe:stripe-android:18.2.0'
+
+//    firebase
+    implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
+    // implementation 'com.google.firebase:firebase-functions:19.0.2'
+    implementation 'com.google.firebase:firebase-functions-ktx:19.0.2'
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.5.0'
 }

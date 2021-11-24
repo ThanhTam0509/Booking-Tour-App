@@ -19,6 +19,9 @@
         android:theme="@style/Theme.BookingTour"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.CardActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.CheckActivity"
             android:exported="true" />
         <activity
