@@ -17,7 +17,8 @@ import org.json.JSONObject
 
     fun createPaymentIntent(
         paymentMethodType: String,
-        completion: (paymentIntentClientSecret: String?, error: String?) -> Unit) {
+        completion: (paymentIntentClientSecret: String?, error: String?) -> Unit
+    ) {
 
         val mediaType = "application/json; charset=utf-8".toMediaType()
         val requestJson = """
@@ -28,11 +29,11 @@ import org.json.JSONObject
             """
         val body = requestJson.toRequestBody(mediaType)
         val request = Request.Builder()
-            .url(BASE_URL + "create-payment-intent")
+            .url("https://api.stripe.com/v1/payment_intents/")
             .post(body)
             .build()
         httpClient.newCall(request)
-            .enqueue(object: Callback {
+            .enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     completion(null, "$e")
                 }
@@ -46,7 +47,8 @@ import org.json.JSONObject
                             responseData?.let { JSONObject(it) } ?: JSONObject()
 
                         // The response from the server contains the PaymentIntent's client_secret
-                        var paymentIntentClientSecret : String = responseJson.getString("clientSecret")
+                        var paymentIntentClientSecret: String =
+                            responseJson.getString("clientSecret")
                         completion(paymentIntentClientSecret, null)
                     }
                 }
