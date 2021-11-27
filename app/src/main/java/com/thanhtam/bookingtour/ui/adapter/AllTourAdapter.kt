@@ -3,20 +3,13 @@ package com.thanhtam.bookingtour.ui.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.icu.number.NumberFormatter.with
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.hendraanggrian.pikasso.picasso
-import com.hendraanggrian.pikasso.transformations.grayscale
-import com.hendraanggrian.pikasso.transformations.rounded
-import com.thanhtam.bookingtour.R
 import com.thanhtam.bookingtour.data.responses.ResponseTour
 import com.thanhtam.bookingtour.databinding.ItemTourBinding
 import com.thanhtam.bookingtour.ui.DetailActivity
-import kotlinx.android.synthetic.main.item_tour.view.*
 
 /*
 ///
@@ -48,8 +41,8 @@ class AllTourAdapter(val data: ResponseTour, var c: Context) :
             var allTourIntent = Intent(c, DetailActivity::class.java)
             allTourIntent.putExtra("tourName", data.name)
             allTourIntent.putExtra("tourDifficulty", data.difficulty)
-            allTourIntent.putExtra("tourPrice", data.price)
-            allTourIntent.putExtra("tourRating", data.ratingsAverage)
+            allTourIntent.putExtra("tourPrice", data.price.toString() + " " + "USD")
+            allTourIntent.putExtra("tourRating", data.ratingsAverage.toFloat())
             allTourIntent.putExtra("tourDescription", data.description)
             allTourIntent.putExtra("tourImg", data.imageCover)
             c.startActivity(allTourIntent)

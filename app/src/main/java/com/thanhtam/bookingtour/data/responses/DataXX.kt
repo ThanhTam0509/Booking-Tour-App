@@ -1,7 +1,5 @@
 package com.thanhtam.bookingtour.data.responses
 
-import com.google.gson.annotations.SerializedName
-
 
 data class DataXX(
 //    val _id: String,
@@ -17,7 +15,7 @@ data class DataXX(
 //    val maxGroupSize: Int,
     val name: String,
     val price: Int,
-    val ratingsAverage: Double,
+    val ratingsAverage: Double
 //    val ratingsQuantity: Int,
 //    val secretTour: Boolean,
 //    val slug: String,
