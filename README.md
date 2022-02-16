@@ -16,22 +16,22 @@ You can download file
 - Credit and payment
 ## Demonstration
 #### Spalsh Screen:
-![This is an image](https://user-images.githubusercontent.com/66050326/154184758-ced21cbc-4877-4c0b-8291-a002c896f2f2.jpg)
-![This is an image](https://user-images.githubusercontent.com/66050326/154184812-cc1858a4-9469-4a0c-b4d2-5eb75ad74c68.jpg)
-#### Login and Logout:
+![This is an image](https://user-images.githubusercontent.com/66050326/154186367-b3240cfa-eee1-49fa-8077-7415a767e9c2.jpg)
+![This is an image](https://user-images.githubusercontent.com/66050326/154186377-87e5d9df-07ab-4959-b6f8-b350978713b6.jpg)
+#### Login and Register:
 ![This is an image](https://user-images.githubusercontent.com/66050326/154184480-19a6a4ad-8576-4154-b811-73b87d587169.jpg)
 ![This is an image](https://user-images.githubusercontent.com/66050326/154184879-991616ae-7cac-4255-a712-4c0412478c6f.jpg)
 #### Home Screen:
-![This is an image](https://user-images.githubusercontent.com/66050326/154184935-f20f189b-6787-4e91-af34-79b1ed48dca6.jpg)
-![This is an image](https://user-images.githubusercontent.com/66050326/154184950-2dc14536-1151-436b-b464-043982c35f84.jpg)
-![This is an image](https://user-images.githubusercontent.com/66050326/154184957-f3a7065b-e3ec-49a3-b71e-02b9f2471e03.jpg)
-![This is an image](https://user-images.githubusercontent.com/66050326/154184962-4ba9fce3-939d-4ac0-87a4-98f5aed11fe1.jpg)
+![This is an image](https://user-images.githubusercontent.com/66050326/154186385-68d23dd8-98e6-4f8d-a3b1-acf2bc04f50b.jpg)
+![This is an image](https://user-images.githubusercontent.com/66050326/154186391-e7faddde-89ed-4f8f-b47c-fee23e151042.jpg)
+![This is an image](https://user-images.githubusercontent.com/66050326/154186402-4f2ef151-ca31-48de-9d98-9778aa7493be.jpg)
+![This is an image](https://user-images.githubusercontent.com/66050326/154186408-c157cb1e-7a76-405e-bc28-20592b213006.jpg)
 #### Detail Screen:
-![This is an image](https://user-images.githubusercontent.com/66050326/154184966-310268c3-14d5-4624-b42a-4addee880b28.jpg)
+![This is an image](https://user-images.githubusercontent.com/66050326/154186414-9c251a69-7c5b-4b40-8be2-ad1e1cff3f52.jpg)
 #### Select Date and Time:
-![This is an image](https://user-images.githubusercontent.com/66050326/154184969-312aa295-f4f5-4999-bf61-0c7256c0709d.jpg)
+![This is an image](https://user-images.githubusercontent.com/66050326/154186415-9dd80a1c-ae9b-46e3-ab1c-9ccb6e8b5b18.jpg)
 #### Payment Screen:
-![This is an image](https://user-images.githubusercontent.com/66050326/154184973-041e5ca0-2795-4762-9b62-517adb14cd7f.jpg)
+![This is an image](https://user-images.githubusercontent.com/66050326/154186424-5aa39c01-f84f-4ea5-b08f-b95ff490e859.jpg)
 ### How To Use
 - Login 
 
