@@ -16,8 +16,8 @@ You can download file
 - Credit and payment
 ## Demonstration
 #### Spalsh Screen:
-![This is an image](https://scontent.fsgn5-13.fna.fbcdn.net/v/t1.15752-9/271705252_467767674840437_4266580918652621660_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=ae9488&_nc_ohc=XJZ8-aCT-tYAX-oOD32&_nc_ht=scontent.fsgn5-13.fna&oh=03_AVI0yh6zrZKwF4fRTmbR_kvlLjWflCe6K4SnY-zNHLPgvw&oe=620AE9AC)
-![This is an image](https://scontent.fsgn5-15.fna.fbcdn.net/v/t1.15752-9/271704011_296639842436743_7239566216261322866_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=ae9488&_nc_ohc=Hf2I9o_RZ5wAX-F3qct&_nc_ht=scontent.fsgn5-15.fna&oh=03_AVLze_u-mIKd7W4G2jeZke82qAWm0-OnxphauOm9YKQtZg&oe=620B9EDE)
+![This is an image](https://photos.google.com/photo/AF1QipOPcyBI_enC7X3gVxmunsvLgXVP2Y5voDyviKAw)
+![This is an image](https://photos.google.com/photo/AF1QipN9jaRX9FPAcEEQEnKxCDKRw7wPuupetfx8JPJl)
 #### Login and Logout:
 ![This is an image](https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.15752-9/271669142_321177513256996_2235578623721726436_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_ohc=zy-2SN9uOQEAX98vKj_&tn=Xz4W-HKC5aBWCH5X&_nc_ht=scontent.fsgn5-5.fna&oh=03_AVJ_tKTKghXJb3duc07Z2MtUe2vvshQVHyjm1axUeQdOVQ&oe=620BF1FA)
 ![This is an image](https://scontent.fsgn5-11.fna.fbcdn.net/v/t1.15752-9/271691319_465718485241663_5823420042142563364_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=ae9488&_nc_ohc=CELbNty2JfQAX__oWpt&_nc_ht=scontent.fsgn5-11.fna&oh=03_AVIC4qyh879Pz3582xxMk3mSu6rBjIAOrIwHShNxmpZq_Q&oe=620C1230)
