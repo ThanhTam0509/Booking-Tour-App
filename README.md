@@ -29,8 +29,7 @@ You can download file
 #### Detail Screen:
 ![This is an image](https://user-images.githubusercontent.com/66050326/154184966-310268c3-14d5-4624-b42a-4addee880b28.jpg)
 #### Select Date and Time:
-![This is an image](https://user-images.githubusercontent.com/66050326/154184969-312aa295-f4f5
--4999-bf61-0c7256c0709d.jpg)
+![This is an image](https://user-images.githubusercontent.com/66050326/154184969-312aa295-f4f5-4999-bf61-0c7256c0709d.jpg)
 #### Payment Screen:
 ![This is an image](https://user-images.githubusercontent.com/66050326/154184973-041e5ca0-2795-4762-9b62-517adb14cd7f.jpg)
 ### How To Use
